@@ -3,10 +3,12 @@ import { notFound } from 'next/navigation';
 import { getProduct } from '@/lib/api';
 import { AddToCartButton } from '@/components/ui/add-to-cart-button';
 
+type tParams = Promise<{ id: string }>;
+
 export default async function ProductPage({
   params,
 }: {
-  params: { id: string };
+  params: tParams;
 }) {
   try {
     const { id } = await params
